@@ -47,8 +47,8 @@ def filter_numbers(nums, filter_type):
     assert filter_type in FILTER_TYPES, f"Allowed filter_type: {FILTER_TYPES}"
 
     if filter_type == ODD: 
-        return [n for n in nums if n % 2 != 0]
+        return list(filter(lambda x: x % 2 != 0, nums))
     elif filter_type == EVEN:
-        return [n for n in nums if n % 2 == 0]
+        return list(filter(lambda x: x % 2 == 0, nums))
     else:
-        return [n for n in nums if is_prime(n)]
+        return list(filter(lambda x: is_prime(x), nums))
