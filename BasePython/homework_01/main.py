@@ -44,7 +44,7 @@ def filter_numbers(nums, filter_type):
     >>> filter_numbers([2, 3, 4, 5], EVEN)
     <<< [2, 4]
     """
-    assert filter_type in FILTER_TYPES, "Allowed filter_type: {FILTER_TYPES}"
+    assert filter_type in FILTER_TYPES, f"Allowed filter_type: {FILTER_TYPES}"
 
     if filter_type == ODD: 
         return [n for n in nums if n % 2 != 0]
