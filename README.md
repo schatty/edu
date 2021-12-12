@@ -2,4 +2,4 @@
 
 The repo for educational courses assignments.
 
-__BasePython__ - tool for SE on python, basic toolkit
+[BasePython](https://github.com/schatty/edu/tree/main/BasePython) - tools for SE on python, basic toolkit
