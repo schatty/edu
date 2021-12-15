@@ -51,4 +51,4 @@ def filter_numbers(nums, filter_type):
     elif filter_type == EVEN:
         return list(filter(lambda x: x % 2 == 0, nums))
     else:
-        return list(filter(lambda x: is_prime(x), nums))
+        return list(filter(is_prime, nums))
