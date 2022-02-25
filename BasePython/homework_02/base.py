@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .exceptions import LowFuelError, NotEnoughFuel
+from homework_02.exceptions import LowFuelError, NotEnoughFuel
 
 
 @dataclass

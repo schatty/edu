@@ -1,7 +1,6 @@
-from dataclasses import dataclass
-from .base import Vehicle
-from .engine import Engine
-from .exceptions import CargoOverload
+from homework_02.base import Vehicle
+from homework_02.engine import Engine
+from homework_02.exceptions import CargoOverload
 
 
 class Plane(Vehicle):
