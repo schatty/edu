@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-import exceptions
+
+from .exceptions import LowFuelError, NotEnoughFuel
 
 
 @dataclass
@@ -14,11 +15,11 @@ class Vehicle:
         if self.started:
             return
         if self.fuel <= 0:
-            raise exceptions.LowFuelError
+            raise LowFuelError
         self.started = True
 
     def move(self, distance: float) -> None:
         fuel_needed = distance * self.fuel_consumption
         if fuel_needed > self.fuel:
-            raise exceptions.NotEnoughFuel
+            raise NotEnoughFuel
         self.fuel -= fuel_needed

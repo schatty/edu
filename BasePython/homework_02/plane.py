@@ -1,10 +1,7 @@
-"""
-создайте класс `Plane`, наследник `Vehicle`
-"""
 from dataclasses import dataclass
-from base import Vehicle
-from engine import Engine
-import exceptions
+from .base import Vehicle
+from .engine import Engine
+from .exceptions import CargoOverload
 
 
 class Plane(Vehicle):
@@ -29,7 +26,7 @@ class Plane(Vehicle):
     def load_cargo(self, cargo: float) -> None:
         new_cargo = cargo + self.cargo
         if new_cargo > self.max_cargo:
-            raise exceptions.CargoOverload
+            raise CargoOverload
         self.cargo = new_cargo
 
     def remove_all_cargo(self) -> float:

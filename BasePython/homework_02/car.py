@@ -1,12 +1,9 @@
-"""
-создайте класс `Car`, наследник `Vehicle`
-"""
-from base import Vehicle
-from engine import Engine
+from .base import Vehicle
+from .engine import Engine
 
 
 class Car(Vehicle):
-    def __init__(self, weight:float=10, fuel:float=10, fuel_consumption:float=1):
+    def __init__(self, weight: float=10, fuel: float=10, fuel_consumption: float=1):
         """
         Args:
             weight: Weight in pounds.
