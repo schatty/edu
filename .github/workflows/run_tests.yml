@@ -57,6 +57,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest BasePython/testing -s -vv -rsx
+        cd BasePython
+        pytest testing -s -vv -rsx
       env:
         SQLALCHEMY_PG_CONN_URI: postgresql+asyncpg://postgres:secretpassword@localhost:5432/postgres
