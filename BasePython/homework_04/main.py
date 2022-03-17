@@ -46,19 +46,11 @@ async def fetch_posts_data() -> List[dict]:
 async def create_user(session: AsyncSession, name: str, username: str, email: str):
     user = User(name=name, username=username, email=email)
     session.add(user)
-    # await session.commit()
-
-    # await session.refresh(user)
-    # print("Added user:", user)
 
 
 async def create_post(session: AsyncSession, user_id: int, title: str, body: str = ""):
     post = Post(user_id=user_id, title=title, body=body)
     session.add(post)
-    # await session.commit()
-
-    # await session.refresh(post)
-    # print("Added post:", post)
 
 
 async def upload_users(session, users_data: List[dict]):

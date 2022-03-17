@@ -15,30 +15,24 @@ TOTAL_POSTS = 100
 
 
 async def fetch_json(session: ClientSession, url):
-    # logger.info("fetch url {}", url)
     async with session.get(url) as response:
         response_json = await response.json()
-        # logger.info("fetched url {} and got data {}", response.url, response_json)
         return response_json
 
 
 async def fetch_user(user_id):
     user_url = f"{USERS_DATA_URL}/{user_id}"
-
     async with ClientSession() as session:
         user_data = await fetch_json(session, user_url)
 
-    # logger.info("got data for user: {}", user_data)
     return user_data 
 
 
 async def fetch_post(post_id):
     post_url = f"{POSTS_DATA_URL}/{post_id}"
-
     async with ClientSession() as session:
         post_data = await fetch_json(session, post_url)
 
-    # logger.info("got data for post: {}", post_data)
     return post_data 
 
 
