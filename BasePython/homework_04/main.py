@@ -20,7 +20,7 @@ from models import engine, Base, User, Post, Session
 from jsonplaceholder_requests import fetch_user, fetch_post, TOTAL_POSTS, TOTAL_USERS
 
 
-async def init_schemas():
+async def init_schemas(engine):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
@@ -46,19 +46,19 @@ async def fetch_posts_data() -> List[dict]:
 async def create_user(session: AsyncSession, name: str, username: str, email: str):
     user = User(name=name, username=username, email=email)
     session.add(user)
-    await session.commit()
+    # await session.commit()
 
-    await session.refresh(user)
-    print("Added user:", user)
+    # await session.refresh(user)
+    # print("Added user:", user)
 
 
 async def create_post(session: AsyncSession, user_id: int, title: str, body: str = ""):
     post = Post(user_id=user_id, title=title, body=body)
     session.add(post)
-    await session.commit()
+    # await session.commit()
 
-    await session.refresh(post)
-    print("Added post:", post)
+    # await session.refresh(post)
+    # print("Added post:", post)
 
 
 async def upload_users(session, users_data: List[dict]):
@@ -79,13 +79,12 @@ async def upload_posts(session, posts_data: List[dict]):
 
 async def async_main():
     # Creating schemas
-    await init_schemas()
+    await init_schemas(engine)
 
     # Fetching data from web
 
     users_data: List[dict]
     posts_data: List[dict]
-
     users_data, posts_data = await asyncio.gather(
         fetch_users_data(),
         fetch_posts_data()
@@ -98,10 +97,14 @@ async def async_main():
         await asyncio.gather(
             upload_users(session, users_data),
         )
+        await session.commit()
+        print("Users added to db.")
 
         await asyncio.gather(
             upload_posts(session, posts_data)
         )
+        await session.commit()
+        print("Posts added to db.")
 
 
 def main():
