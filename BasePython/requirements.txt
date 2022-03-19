@@ -13,11 +13,14 @@ click==8.0.4
 docker==5.0.3
 Faker==13.3.0
 fastapi==0.74.1
+Flask==2.0.3
 frozenlist==1.3.0
 greenlet==1.1.2
 h11==0.13.0
 idna==3.3
 iniconfig==1.1.1
+itsdangerous==2.1.1
+Jinja2==3.0.3
 loguru==0.6.0
 Mako==1.2.0
 MarkupSafe==2.1.0
@@ -43,4 +46,5 @@ typing_extensions==4.1.1
 urllib3==1.26.8
 uvicorn==0.17.5
 websocket-client==1.3.1
+Werkzeug==2.0.3
 yarl==1.7.2
