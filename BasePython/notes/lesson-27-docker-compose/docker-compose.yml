@@ -20,9 +20,24 @@ services:
       CONFIG_NAME: DevelopmentConfig
       SQLALCHEMY_DATABASE_URI: postgresql+pg8000://app:password@pg/shop
     ports:
-      - "6000:5000"
+      - "5050:5000"
+    volumes:
+      - ./:/app
     depends_on:
       - pg
+
+  shop-prod:
+    build:
+      context: .
+      dockerfile: docker-build/Dockerfile
+    environment:
+      CONFIG_NAME: ProductionConfig
+      SQLALCHEMY_DATABASE_URI: postgresql+pg8000://app:password@pg/shop
+    ports:
+      - "5080:80"
+    depends_on:
+      - pg
+
 
 volumes:
   pg-data:

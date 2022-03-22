@@ -15,5 +15,8 @@ Product #{{ product.id }}
         <span class="badge bg-secondary">New</span>
     {% endif %}
 </div>
+<div>
+    Created at: {{ product.created_at.strftime("%d.%m.%Y at %H:%M:%S") }}
+</div>
 {{ back_to_products_list() }}
 {% endblock %}
