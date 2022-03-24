@@ -17,7 +17,7 @@ import asyncio
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from models import engine, Base, User, Post, Session
-from jsonplaceholder_requests import fetch_user, fetch_post, TOTAL_POSTS, TOTAL_USERS
+from jsonplaceholder_requests import fetch_all_users, fetch_all_posts
 
 
 async def init_schemas(engine):
@@ -28,19 +28,13 @@ async def init_schemas(engine):
 
 
 async def fetch_users_data() -> List[dict]:
-    coros = [
-        await fetch_user(user_id)
-        for user_id in range(1, TOTAL_USERS + 1)
-    ]
-    return coros
+    coro = await fetch_all_users()
+    return coro
 
 
 async def fetch_posts_data() -> List[dict]:
-    coros = [
-        await fetch_post(post_id)
-        for post_id in range(1, TOTAL_POSTS + 1)
-    ]
-    return coros
+    coro = await fetch_all_posts()
+    return coro
 
  
 async def create_user(session: AsyncSession, name: str, username: str, email: str):
