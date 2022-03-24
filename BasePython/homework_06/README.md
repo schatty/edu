@@ -1,20 +1,17 @@
-### Домашнее задание "Веб-приложение на Flask"
-#### Задача:
-- скопируйте папку `homework_05` для этой домашки (Памятка: https://github.com/OtusTeam/BasePython/tree/homeworks-new)
-- используйте следующие пакеты:
-    - Flask
-- в модуле `app` создайте базовое приложение на Flask
-- создайте index view `/`
-- добавьте страницу `/about/`, добавьте туда текст
-- создайте базовый шаблон (используйте https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template)
-- в базовый шаблон подключите статику Bootstrap 5 (подключите стили), примените стили Bootstrap
-- в базовый шаблон добавьте навигационную панель `nav` (https://getbootstrap.com/docs/5.0/components/navbar/)
-- в навигационную панель добавьте ссылки на главную страницу `/` и на страницу `/about/` при помощи `url_for`
-- добавьте новые зависимости в файл `requirements.txt` в корне проекта 
-  (лучше вручную, но можно командой `pip freeze > requirements.txt`, тогда обязательно проверьте, что туда попало, и удалите лишнее)
-#### Критерии оценки:
-- создано Flask приложение в `app.py`
-- добавлены вьюшки `/` и `/about/`
-- подключены и применены стили Bootstrap
-- в базовый шаблон добавлена навигационная панель
-- автоматический тест `test_homework_05` проходит
+### Assignment "Containers Interactions"
+#### Problem
+- create docker-compose file, set connection between the database and web application
+- add models for database
+- add support for adding new records
+- create a webpage displaying all added records
+- database should be running in a separate container
+- Flask web app should be running in a production-ready mode (uwsgi, nginx, unicorn)
+
+### Result
+
+![hw06_preview](https://user-images.githubusercontent.com/23639048/160006797-2ab4a2fc-90d6-4ed6-b92f-f3097702b62d.png)
+
+- `User` model added 
+- `localhost:5000` page displays list of all added users
+- `localhost:5000/add` page is for adding new user to the database
+- Flask web app is set for production-mode regime 
