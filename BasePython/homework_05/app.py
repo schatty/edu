@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.get("/", endpoint="index")
 def index():
-    return render_template("base.html")
+    return render_template("app/index.html")
 
 
 @app.get("/about/", endpoint="about")
