@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from re import I
+from os import getenv
 from werkzeug.exceptions import BadRequest, InternalServerError
 from sqlalchemy.exc import IntegrityError, DatabaseError
 from flask import Flask, render_template, request, redirect
@@ -12,10 +12,10 @@ from forms import UserForm
 
 app = Flask(__name__)
 
-app.config.update(
-    SECRET_KEY="abc",
-    SQLALCHEMY_DATABASE_URI="postgresql+pg8000://app:password@pg/shop"
-)
+CONFIG_OBJECT_PATH = f"config.{getenv('CONFIG_NAME', 'DevelopmentConfig')}"
+app.config.from_object(CONFIG_OBJECT_PATH)
+
+
 db.init_app(app)
 migrate = Migrate(app, db)
 
@@ -54,4 +54,5 @@ def add_user():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5050)
+

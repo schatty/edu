@@ -3,6 +3,7 @@
 set -ex
 
 echo "Applying migrations..."
+echo $SQLALCHEMY_DATABASE_URI
 
 flask db upgrade
 
