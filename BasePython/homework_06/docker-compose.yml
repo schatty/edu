@@ -4,7 +4,7 @@ services:
   pg:
     image: postgres # use latest official postgres version
     environment:
-      POSTGRES_DB: shop
+      POSTGRES_DB: mydb
       POSTGRES_USER: app
       POSTGRES_PASSWORD: password
     ports:
@@ -18,7 +18,7 @@ services:
       dockerfile: docker-build/Dockerfile
     environment:
       CONFIG_NAME: ProductionConfig
-      SQLALCHEMY_DATABASE_URI: postgresql+pg8000://app:password@pg/shop
+      SQLALCHEMY_DATABASE_URI: postgresql+pg8000://app:password@pg/mydb
     ports:
       - "5050:80"
     depends_on:
