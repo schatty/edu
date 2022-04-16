@@ -1,0 +1,13 @@
+{% extends 'experiments/base.html' %}
+
+{% block body %}
+
+<ul>
+    {% for run in object_list %}
+        <li>{{ run.datetime|date }} - {{ run.name }} <a href="{{ run.get_absolute_url }}">detail</a></li>
+    {% empty %}
+        <li>No runs yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

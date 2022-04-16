@@ -1,0 +1,22 @@
+{% extends 'experiments/base.html' %}
+
+{% block body %}
+
+<a href="{% url 'browse' %}">back</a>
+
+<h3>{{ object.name }}</h3>
+
+<table class="table">
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>{{ object.name }}</td>
+      </tr>
+      <tr>
+        <td>created</td>
+        <td>{{ object.datetime }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock %}
