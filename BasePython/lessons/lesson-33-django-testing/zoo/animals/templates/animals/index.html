@@ -1,0 +1,14 @@
+{% extends 'animals/base.html' %}
+
+{% block main_content %}
+<body>
+<h2>Hello {{ user }}</h2>
+
+<a href="{% url 'animals:create'%}">create</a>
+<ul>
+    {% for el in all_animals %}
+        <li><a href="{% url 'animals:detail' el.pk %}"> {{ el }} </a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
