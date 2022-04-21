@@ -48,6 +48,9 @@ class Run(models.Model):
     def __str__(self):
         return f"run_{self.name}"
 
+    def get_tags(self):
+        return list(sorted(self.scalars.keys()))
+
     def get_absolute_url(self):
         return reverse("run_detail", args=[str(self.id)])
 
